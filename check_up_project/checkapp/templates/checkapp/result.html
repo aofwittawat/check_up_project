@@ -2,13 +2,83 @@
 
 
 {% block content %}
+        <div class="container">
+                <h3 class="mt-5"> สวัสดีครับ คุณ {{result.username}} ผลการตรวจปัจจัยเสี่ยงคุณควรตรวจตามรายการดังนี้</h3><br>
+                <h5>เจาะเลือดตรวจค่าพื้นฐานทั่วไปคือ<br>CBC,BUN,Cr,Urine analysis,Basic Liver function(AST,ALT),Dental check up</h5>
+                {% if result.gender == 'f' %}
+                        {% if result.age >= 75 %}
+                                <p>
+                                        "Vitamin B level"<br>
+                                        "BMD,calcium,Phosohorus"<br>
+                                        "colon cancer"<br>
+                                        "FBS, HbA1C, EKG or stress test, CAC"<br>
+                                        "Breast cancer"<br>
+                                        "Cervix cancer"<br>
+                                        "PAP smear"<br>
+                                        "lipid profile"<br>
+                                        "dental x-ray"<br>
+                                </p>
+                        {% elif result.age >= 60 and result.age < 75 %}
+                                <p>
+                                        "BMD,calcium,Phosohorus"<br>
+                                        "colon cancer"<br>
+                                        "FBS, HbA1C, EKG or stress test, CAC"<br>
+                                        "Breast cancer"<br>
+                                        "Cervix cancer"<br>
+                                        "PAP smear"<br>
+                                        "lipid profile"<br>
+                                        "dental x-ray"<br>
+                                </p>
+                        {% elif result.age >= 45 and result.age < 60 %}
+                                <p>
+                                        "colon cancer"<br>
+                                        "FBS, HbA1C, EKG or stress test, CAC"<br>
+                                        "Breast cancer"<br>
+                                        "Cervix cancer"<br>
+                                        "PAP smear"<br>
+                                        "lipid profile"<br>
+                                        "dental x-ray"<br>
+                                </p>
+                        {% elif result.age >= 40 and result.age < 45 %}
+                                <p>
+                                        "FBS, HbA1C, EKG or stress test, CAC"<br>
+                                        "Breast cancer"<br>
+                                        "Cervix cancer"<br>
+                                        "PAP smear"<br>
+                                        "lipid profile"<br>
+                                        "dental x-ray"<br>
+                                </p>
+                        {% elif result.age >= 35 and result.age < 40 %}
+                                <p>
+                                        "Breast cancer"<br>
+                                        "Cervix cancer"<br>
+                                        "PAP smear"<br>
+                                        "lipid profile"<br>
+                                        "dental x-ray"<br>
+                                </p>
+                        {% elif result.age >= 30 and result.age < 35 %}
+                                <p>
+                                        "Cervix cancer"<br>
+                                        "PAP smear"<br>
+                                        "lipid profile"<br>
+                                        "dental x-ray"<br>
+                                </p>
+                        {% elif result.age >= 20 and result.age < 30 %}
+                                <p>
+                                        "PAP smear"<br>
+                                        "lipid profile"<br>
+                                        "dental x-ray"<br>
+                                </p>
+                        {% elif result.age >= 18 and result.age < 20 %}
+                                <p>
+                                        "dental x-ray"<br>
+                                </p>
+                        {% endif %}
+                {% elif result.gender == 'm' %}
+                        <p> lol</p>
+                {% endif %}
+
+        </div>
 
 
-<p>Result</p>
-{% for r in result %}
-   
-        <p> มีความดันสูง : {{r.HT}}</p>
-    
-{% endfor %}
-
-{% endblock %}
+{% endblock %} 

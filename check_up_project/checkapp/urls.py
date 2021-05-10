@@ -4,5 +4,5 @@ from .views import Home, Result
 
 urlpatterns = [
     path('',Home,name='home-page'),
-    path('result/<str:username>',Result,name='result-page'),
+    path('result',Result,name='result-page'),
 ]
